@@ -5,6 +5,7 @@ import { pocketBase } from "@/lib/pocketBase"
 
 export async function generateStaticParams() {
     const events = await pocketBase.collection("events").getFullList();
+    console.log(events.map(event => ({ params: { event: event.nameShort } })))
     return events.map(event => ({ params: { event: event.nameShort } }));
 }
 

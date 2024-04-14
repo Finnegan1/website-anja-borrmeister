@@ -1,5 +1,4 @@
 import { Card } from "@/components/ui/card";
-import Image from "next/image";
 
 export function About() {
   return (
@@ -34,7 +33,7 @@ export function About() {
             </p>
           </Card>
           <div className="w-1/3">
-            <Image
+            <img
               alt="Anja in a field"
               className="rounded-lg"
               height="500"
@@ -51,7 +50,7 @@ export function About() {
           <Card className="p-4 bg-white rounded-lg shadow-md">
             <div className="flex items-stretch gap-4">
               <div className="flex-[1]">
-                <Image
+                <img
                   alt="Enja painting"
                   className="rounded-lg h-full"
                   src="https://static.wixstatic.com/media/6e4c346c5559417f855495767e30cd9b.jpg/v1/fill/w_834,h_694,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/6e4c346c5559417f855495767e30cd9b.jpg"
@@ -76,7 +75,7 @@ export function About() {
         </section>
         <section className="grid grid-cols-2 gap-8 mt-8">
         <Card className="p-4 bg-white rounded-lg shadow-md relative">
-            <Image
+            <img
               alt="Writing stories"
               className="rounded-lg brightness-50 w-full"
               height="300"
@@ -91,7 +90,7 @@ export function About() {
             </h3>
           </Card>
           <Card className="p-4 bg-white rounded-lg shadow-md relative">
-            <Image
+            <img
               alt="Painting landscapes"
               className="rounded-lg brightness-50 w-full"
               height="300"

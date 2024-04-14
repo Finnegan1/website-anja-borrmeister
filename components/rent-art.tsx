@@ -3,6 +3,7 @@ import { Card } from "./ui/card";
 
 export function RentArt() {
   return (
+    <div className="max-w-5xl mx-auto p-8">
     <main className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-800 py-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
@@ -66,5 +67,6 @@ export function RentArt() {
         </div>
       </div>
     </main>
+    </div>
   );
 }

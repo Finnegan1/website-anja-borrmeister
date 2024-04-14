@@ -1,17 +1,14 @@
 import { pocketBase } from "@/lib/pocketBase";
 
-export type galerieProduct = {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  category: string;
-  size: string;
-};
+export async function generateStaticParams() {
+  const categories = await pocketBase.collection("galerie_products_categories").getFullList();
+  return categories.map((category) => ({
+    params: { category: category.name },
+  }));
+}
 
 export async function Galerie(props: { category: string }) {
-  const galerieData = await pocketBase.collection("galerie_products").getFullList({filter: `category.name="${props.category}"`}) as galerieProduct[];
+  const galerieData = await pocketBase.collection("galerie_products").getFullList({filter: `category.name="${props.category}"`});
   return (
     <div className="max-w-screen-lg mx-auto px-4">
       <header className="py-12">
@@ -27,7 +24,7 @@ export async function Galerie(props: { category: string }) {
             alt="Artwork 1"
             className="w-full"
             height="300"
-            src={pocketBase.files.getUrl(product, product.image)}
+            src={pocketBase.files.getUrl(product, product.image[0])}
             key={product.id}
             style={{
               aspectRatio: "300/300",

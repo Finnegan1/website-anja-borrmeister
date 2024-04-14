@@ -1,10 +1,12 @@
 "use client";
 
+import Image from "next/image";
+
 export function Home() {
   return (
     <main>
       <section className="relative">
-        <img
+        <Image
           alt="Gallery view"
           className="w-full h-auto object-cover aspect-[1920/900] brightness-75"
           src="https://static.wixstatic.com/media/f73077_37a7697614ae463586796ac66c29af07~mv2.jpg/v1/fill/w_1322,h_894,al_c,q_85,enc_auto/f73077_37a7697614ae463586796ac66c29af07~mv2.jpg"
@@ -19,7 +21,7 @@ export function Home() {
       <section className="py-12 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-3 gap-8">
           <div className="bg-white p-6 shadow rounded-lg">
-            <img
+            <Image
               alt="Painting"
               className="w-full h-auto rounded-lg"
               height="240"
@@ -39,7 +41,7 @@ export function Home() {
             </a>
           </div>
           <div className="bg-white p-6 shadow rounded-lg">
-            <img
+            <Image
               alt="Collage"
               className="w-full h-auto rounded-lg"
               height="240"
@@ -59,7 +61,7 @@ export function Home() {
             </a>
           </div>
           <div className="bg-white p-6 shadow rounded-lg">
-            <img
+            <Image
               alt="Watercolor"
               className="w-full h-auto rounded-lg"
               height="240"
@@ -96,7 +98,7 @@ export function Home() {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 gap-8">
           <div className="bg-white p-6 shadow rounded-lg flex flex-col justify-between">
             <div>
-              <img
+              <Image
                 alt="Events"
                 className="w-full h-auto rounded-lg"
                 height="240"
@@ -121,7 +123,7 @@ export function Home() {
           </div>
           <div className="bg-white p-6 shadow rounded-lg flex flex-col justify-between">
             <div>
-              <img
+              <Image
                 alt="Projects"
                 className="w-full h-auto rounded-lg"
                 height="240"

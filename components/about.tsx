@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import Image from "next/image";
 
 export function About() {
   return (
@@ -33,7 +34,7 @@ export function About() {
             </p>
           </Card>
           <div className="w-1/3">
-            <img
+            <Image
               alt="Anja in a field"
               className="rounded-lg"
               height="500"
@@ -50,7 +51,7 @@ export function About() {
           <Card className="p-4 bg-white rounded-lg shadow-md">
             <div className="flex items-stretch gap-4">
               <div className="flex-[1]">
-                <img
+                <Image
                   alt="Enja painting"
                   className="rounded-lg h-full"
                   src="https://static.wixstatic.com/media/6e4c346c5559417f855495767e30cd9b.jpg/v1/fill/w_834,h_694,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/6e4c346c5559417f855495767e30cd9b.jpg"
@@ -75,32 +76,30 @@ export function About() {
         </section>
         <section className="grid grid-cols-2 gap-8 mt-8">
         <Card className="p-4 bg-white rounded-lg shadow-md relative">
-            <img
+            <Image
               alt="Writing stories"
-              className="rounded-lg brightness-50"
+              className="rounded-lg brightness-50 w-full"
               height="300"
               src="https://static.wixstatic.com/media/f73077_4a19f0e725864d07a6dc4cbc99d7f2ee~mv2.jpg/v1/fill/w_718,h_1094,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/f73077_4a19f0e725864d07a6dc4cbc99d7f2ee~mv2.jpg"
               style={{
                 aspectRatio: "400/300",
                 objectFit: "cover",
               }}
-              width="100%"
             />
             <h3 className="text-5xl font-light text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
               WRITING STORIES OF THE HEART
             </h3>
           </Card>
           <Card className="p-4 bg-white rounded-lg shadow-md relative">
-            <img
+            <Image
               alt="Painting landscapes"
-              className="rounded-lg brightness-50"
+              className="rounded-lg brightness-50 w-full"
               height="300"
               src="https://static.wixstatic.com/media/f73077_42d1e6d79b274c1f8b0df7d7e074e42e~mv2.jpg/v1/fill/w_678,h_1094,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/f73077_42d1e6d79b274c1f8b0df7d7e074e42e~mv2.jpg"
               style={{
                 aspectRatio: "400/300",
                 objectFit: "cover",
               }}
-              width="100%"
             />
             <h3 className="text-5xl font-light text-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
               PAINTING LANDSCAPES OF THE SOUL

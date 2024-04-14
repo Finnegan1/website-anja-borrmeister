@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import React from "react";
 import { cn } from "@/lib/utils";
+import Logo from "./logo";
 
 type SubTab = {
   title: string;
@@ -20,36 +21,103 @@ type SubTab = {
 };
 const eventSubTabs: SubTab[] = [
   {
+    title: "Übersicht",
+    description: "",
+    href: "/veranstaltungen",
+  },
+  {
     title: "Weinfest Pillnitz 2024",
-    description: "Description",
-    href: "#",
+    description: "",
+    href: "/veranstaltungen/weinfest-pillnitz-2024",
   },
   {
     title: "Weinfest Pirna 2024",
-    description: "Description",
-    href: "#",
+    description: "",
+    href: "/veranstaltungen/weinfest-pirna-2024",
   },
   {
     title: "Tag der Kunst 2024",
-    description: "Description",
-    href: "#",
+    description: "",
+    href: "/veranstaltungen/tag-der-kunst-2024",
   },
   {
-    title: "Pfiungsten 2024",
-    description: "Description",
-    href: "#",
+    title: "Pfingsten 2024",
+    description: "",
+    href: "/veranstaltungen/pfingsten-2024",
+  },
+];
+
+const galerieSubTabs: SubTab[] = [
+  {
+    title: "Malerei",
+    description: "",
+    href: "/malerei",
+  },
+  {
+    title: "Collage",
+    description: "",
+    href: "/collage",
+  },
+  {
+    title: "Aquarell",
+    description: "",
+    href: "/aquarell",
+  },
+];
+
+const shopSubTabs: SubTab[] = [
+  {
+    title: "mit & ohen Rahmen",
+    description: "",
+    href: "/mach-es-dir-bunt",
+  },
+  {
+    title: "KunsVollerGruß",
+    description: "",
+    href: "/schreib-mal-wieder",
+  },
+];
+
+const moreSubTabs: SubTab[] = [
+  {
+    title: "Kontakt",
+    description: "",
+    href: "/kontakt",
+  },
+  {
+    title: "AGB",
+    description: "",
+    href: "/agb",
+  },
+  {
+    title: "Wiederrufsbelehrung",
+    description: "",
+    href: "/widerruf",
+  },
+  {
+    title: "DSGVO",
+    description: "",
+    href: "/datenschutz",
+  },
+  {
+    title: "Impressum",
+    description: "",
+    href: "/impressum",
   },
 ];
 
 export default function Header() {
   return (
     <header className="py-4 bg-white shadow">
-      <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold">ANJA BORRMEISTER</h1>
+      <div className="w-full px-4 flex justify-between items-center">
+        <div className="flex flex-row items-center gap-6">
+          <Logo className="h-10 w-10" />
+          <h1 className="text-xl font-bold">ANJA BORRMEISTER</h1>
+        </div>
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="/docs" legacyBehavior passHref>
+              <Link href="/" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Home
                 </NavigationMenuLink>
@@ -57,26 +125,65 @@ export default function Header() {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Veranstaltungen</NavigationMenuTrigger>
-              <NavigationMenuContent className="right:0 absolute left-auto top-full w-auto bg-white">
+              <NavigationMenuContent>
                 <ul>
-                  {eventSubTabs.map((eventSubTab) => (
-                    <ListItem
-                      key={eventSubTab.title}
-                      title={eventSubTab.title}
-                      href={eventSubTab.href}
-                    >
-                      {eventSubTab.description}
+                  {eventSubTabs.map((tab) => (
+                    <ListItem key={tab.title} title={tab.title} href={tab.href}>
+                      {tab.description}
                     </ListItem>
                   ))}
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Link href="/docs" legacyBehavior passHref>
+              <NavigationMenuTrigger>Galerie</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul>
+                  {galerieSubTabs.map((tab) => (
+                    <ListItem key={tab.title} title={tab.title} href={tab.href}>
+                      {tab.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/rentart" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Documentation
+                  Rent Art
                 </NavigationMenuLink>
               </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger>Shop</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul>
+                  {shopSubTabs.map((tab) => (
+                    <ListItem key={tab.title} title={tab.title} href={tab.href}>
+                      {tab.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <Link href="/about" legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  About
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+            <NavigationMenuItem className="">
+              <NavigationMenuTrigger>More</NavigationMenuTrigger>
+              <NavigationMenuContent className="right-0">
+                <ul>
+                  {moreSubTabs.map((tab) => (
+                    <ListItem key={tab.title} title={tab.title} href={tab.href}>
+                      {tab.description}
+                    </ListItem>
+                  ))}
+                </ul>
+              </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
@@ -109,31 +216,3 @@ const ListItem = React.forwardRef<
     </li>
   );
 });
-
-/*
-<NavigationMenuLink asChild>
-              <Link className="text-gray-900 hover:text-blue-500" href="#">
-                Galerie
-              </Link>
-            </NavigationMenuLink>
-            <NavigationMenuLink asChild>
-              <Link className="text-gray-900 hover:text-blue-500" href="#">
-                Rent Art
-              </Link>
-            </NavigationMenuLink>
-            <NavigationMenuLink asChild>
-              <Link className="text-gray-900 hover:text-blue-500" href="#">
-                Shop
-              </Link>
-            </NavigationMenuLink>
-            <NavigationMenuLink asChild>
-              <Link className="text-gray-900 hover:text-blue-500" href="#">
-                About
-              </Link>
-            </NavigationMenuLink>
-            <NavigationMenuLink asChild>
-              <Link className="text-gray-900 hover:text-blue-500" href="#">
-                More
-              </Link>
-            </NavigationMenuLink>
-            */

@@ -3,14 +3,20 @@
 import { Event } from "@/components/event"
 import { pocketBase } from "@/lib/pocketBase"
 
-export async function generateStaticParams() {
+export async function getStaticPaths() {
     const events = await pocketBase.collection("events").getFullList();
-    console.log(events.map(event => ({ params: { event: event.nameShort } })))
-    return events.map(event => ({ params: { event: event.nameShort } }));
+    return { 
+        paths: events.map(event => ({ params: { event: event.nameShort } })),
+        fallback: false
+    };
+}
+
+export async function getStaticProps({ params: any }) {
+    const event = await pocketBase.collection("events").getFirstListItem(`nameShort="${params.event.replaceAll("_", " ")}"`)
+    return { props: { event } };
 }
 
 export default async function Page({ params }: { params: { event: string } }) {
-    console.log(`nameShort="${params.event.replace("_", " ")}"`)
     const event = await pocketBase.collection("events").getFirstListItem(`nameShort="${params.event.replaceAll("_", " ")}"`)
     return (
         <Event event={event} />

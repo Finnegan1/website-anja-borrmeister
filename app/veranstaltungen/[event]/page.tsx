@@ -11,11 +11,6 @@ export async function getStaticPaths() {
     };
 }
 
-export async function getStaticProps({ params: any }) {
-    const event = await pocketBase.collection("events").getFirstListItem(`nameShort="${params.event.replaceAll("_", " ")}"`)
-    return { props: { event } };
-}
-
 export default async function Page({ params }: { params: { event: string } }) {
     const event = await pocketBase.collection("events").getFirstListItem(`nameShort="${params.event.replaceAll("_", " ")}"`)
     return (

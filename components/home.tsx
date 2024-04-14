@@ -1,7 +1,5 @@
 "use client";
 
-
-
 export function Home() {
   return (
     <main>

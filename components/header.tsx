@@ -13,57 +13,16 @@ import {
 import React from "react";
 import { cn } from "@/lib/utils";
 import Logo from "./logo";
+import {
+  EventsResponse,
+  GalerieProductsCategoriesResponse,
+} from "@/lib/pocketbase-types";
 
 type SubTab = {
   title: string;
   description: string;
   href: string;
 };
-const eventSubTabs: SubTab[] = [
-  {
-    title: "Übersicht",
-    description: "",
-    href: "/veranstaltungen",
-  },
-  {
-    title: "Weinfest Pillnitz 2024",
-    description: "",
-    href: "/veranstaltungen/weinfest-pillnitz-2024",
-  },
-  {
-    title: "Weinfest Pirna 2024",
-    description: "",
-    href: "/veranstaltungen/weinfest-pirna-2024",
-  },
-  {
-    title: "Tag der Kunst 2024",
-    description: "",
-    href: "/veranstaltungen/tag-der-kunst-2024",
-  },
-  {
-    title: "Pfingsten 2024",
-    description: "",
-    href: "/veranstaltungen/pfingsten-2024",
-  },
-];
-
-const galerieSubTabs: SubTab[] = [
-  {
-    title: "Malerei",
-    description: "",
-    href: "/malerei",
-  },
-  {
-    title: "Collage",
-    description: "",
-    href: "/collage",
-  },
-  {
-    title: "Aquarell",
-    description: "",
-    href: "/aquarell",
-  },
-];
 
 const shopSubTabs: SubTab[] = [
   {
@@ -106,7 +65,28 @@ const moreSubTabs: SubTab[] = [
   },
 ];
 
-export default function Header() {
+export default function Header(props: {
+  galerieProductCategories: GalerieProductsCategoriesResponse[];
+  events: EventsResponse[];
+}) {
+  const galerieSubTabs: SubTab[] = props.galerieProductCategories.map(
+    (categorie) => {
+      return {
+        title: categorie.name,
+        description: "",
+        href: `/galerie/${categorie.name}`,
+      };
+    }
+  );
+
+  const eventSubTabs: SubTab[] = props.events.map((event) => {
+    return {
+      title: event.nameShort,
+      description: "",
+      href: `/veranstaltungen/${event.nameShort.replaceAll(" ", "_")}`,
+    };
+  })
+
   return (
     <header className="py-4 bg-white shadow">
       <div className="w-full px-4 flex justify-between items-center">

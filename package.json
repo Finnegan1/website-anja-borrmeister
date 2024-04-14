@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typegen": "pocketbase-typegen --env",
+    "uml": "pocketbase-uml"
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.0",
@@ -16,6 +18,9 @@
     "clsx": "^2.1.0",
     "lucide-react": "^0.368.0",
     "next": "14.2.1",
+    "pocketbase": "^0.21.1",
+    "pocketbase-typegen": "^1.2.1",
+    "pocketbase-uml": "^0.7.1",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.2.2",

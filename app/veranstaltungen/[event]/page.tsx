@@ -4,7 +4,7 @@ import { pocketBase } from "@/lib/pocketBase"
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-    const events = await pocketBase.collection("events").getFullList();
+    const events = await pocketBase.collection("events").getFullList({ cache: 'no-store'});
     return events.map((event) => ({event: event.nameShort.replaceAll(" ", "_") }));
 }
 

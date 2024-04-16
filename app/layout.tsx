@@ -16,8 +16,8 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const galerieProductCategories = await pocketBase.collection("galerie_products_categories").getFullList();
-  const events = await pocketBase.collection("events").getFullList();
+  const galerieProductCategories = await pocketBase.collection("galerie_products_categories").getFullList({ cache: "no-store"});
+  const events = await pocketBase.collection("events").getFullList({ cache: "no-store"});
 
   return (
     <html lang="en">

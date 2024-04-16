@@ -5,9 +5,7 @@ export const dynamicParams = false
 
 export async function generateStaticParams() {
     const events = await pocketBase.collection("events").getFullList();
-    return events.map((event) => ({
-        params: { event: event.nameShort.replaceAll(" ", "_") },
-    }));
+    return events.map((event) => ({event: event.nameShort.replaceAll(" ", "_") }));
 }
 
 export default async function Page({ params }: { params: { event: string } }) {

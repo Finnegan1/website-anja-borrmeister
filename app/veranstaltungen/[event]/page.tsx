@@ -1,7 +1,8 @@
 "use server"
-
 import { Event } from "@/components/event"
 import { pocketBase } from "@/lib/pocketBase"
+
+export const dynamicParams = false
 
 export async function generateStaticParams() {
     const events = await pocketBase.collection("events").getFullList();

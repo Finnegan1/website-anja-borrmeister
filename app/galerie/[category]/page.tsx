@@ -6,7 +6,7 @@ export const dynamicParams = false
 export async function generateStaticParams() {
     const categories = await pocketBase.collection("galerie_products_categories").getFullList({ cache: 'no-store'});
     console.log("categories--------------------")
-    console.log(categories);
+    console.log(categories.map(category => ({ category: category.name })));
     console.log("categories--------------------")
     return categories.map(category => ({ category: category.name }));
 }

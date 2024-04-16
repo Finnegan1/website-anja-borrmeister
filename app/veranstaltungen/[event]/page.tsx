@@ -3,12 +3,11 @@
 import { Event } from "@/components/event"
 import { pocketBase } from "@/lib/pocketBase"
 
-export async function getStaticPaths() {
+export async function getStaticParams() {
     const events = await pocketBase.collection("events").getFullList();
-    return { 
-        paths: events.map(event => ({ params: { event: event.nameShort } })),
-        fallback: false
-    };
+    return events.map((event) => ({
+        params: { event: event.nameShort.replaceAll(" ", "_") },
+    }));
 }
 
 export default async function Page({ params }: { params: { event: string } }) {

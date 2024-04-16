@@ -1,4 +1,3 @@
-"use server"
 import { Event } from "@/components/event"
 import { pocketBase } from "@/lib/pocketBase"
 
